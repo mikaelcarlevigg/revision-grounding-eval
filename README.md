@@ -40,16 +40,16 @@ cannot be retrieved.
 Sections are chunked whole, since a section is what a person cites. Each one is
 embedded with nomic-embed-text and normalised at index time, so a search is a plain
 dot product rather than a cosine calculation. Every chunk carries the revision date it
-came from, and each hit is checked sion status derived by
+came from, and each hit is checked against a per-section revision status derived by
 comparing the two snapshots.
 
 No frameworks. Cosine similarity is fifteen lines of plain Python, because the point of
-this repo is what happens underneatmported.
+this repo is what happens underneath, not which library was imported.
 
 ## Status
 
-- `parse.py`: eCFR XML to sections
+- `parse.py`: eCFR XML to sections as JSON. Done.
 - `diff.py`: per-section revision status, added, changed, unchanged or removed. Done.
-- `embed.py`: embeddings via Ollamat index time. Done.
+- `embed.py`: embeddings via Ollama, normalised and rounded at index time. Done.
 - `search.py`: dot product, top-k, revision gate. Next.
-- `evaluate.py`: recall@k and groun question set. Next.
+- `evaluate.py`: recall@k and groundedness against a labelled question set. Next.
