@@ -46,6 +46,19 @@ comparing the two snapshots.
 No frameworks. Cosine similarity is fifteen lines of plain Python, because the point of
 this repo is what happens underneath, not which library was imported.
 
+## Running it
+
+Nothing is needed to read the results. The parsed sections, the per-section revision
+status and the embedded vectors are all in `data/`.
+
+To re-embed, for instance to try a different embedding model or add another snapshot,
+you need Ollama running locally with `nomic-embed-text`:
+
+    ollama pull nomic-embed-text
+    python embed.py
+
+`requests` is the only Python dependency.
+
 ## Status
 
 - `parse.py`: eCFR XML to sections as JSON. Done.
